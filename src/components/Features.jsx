@@ -89,14 +89,37 @@ const Features = () => {
   ];
 
   return (
-    <section id="features" className="py-24 bg-white relative">
-      <div className="absolute inset-0 bg-gradient-mesh opacity-5"></div>
+    <section
+      id="features"
+      className="py-24 bg-gray-50 relative overflow-hidden"
+    >
+      {/* Animated gradient background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 animate-gradient-shift"></div>
+
+        {/* Floating gradient orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+
+        {/* Animated dots pattern */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-5"></div>
+
+        {/* Diagonal lines */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-50 transform rotate-12"></div>
+          <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-50 transform -rotate-12"></div>
+        </div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold font-display mb-6">
+          <h2 className="text-5xl font-bold font-display mb-6 relative">
             Everything You Need to
             <span className="block gradient-text">Succeed in IELTS</span>
+            {/* Decorative elements */}
+            <div className="absolute -top-6 -left-6 w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 animate-pulse"></div>
+            <div className="absolute -bottom-4 -right-6 w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-20 animate-pulse animation-delay-1000"></div>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our comprehensive platform combines cutting-edge AI technology with
@@ -108,11 +131,12 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative"
+              className="group relative animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              {/* Card glow effect on hover */}
               <div
-                className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl"
+                className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-75 transition duration-300 rounded-2xl blur-lg"
                 style={{
                   backgroundImage: `linear-gradient(to right, ${
                     feature.gradient.split(" ")[1]
@@ -120,11 +144,13 @@ const Features = () => {
                 }}
               ></div>
 
-              <div className="relative bg-white p-8 rounded-2xl shadow-lg card-hover border border-gray-100">
+              <div className="relative bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-lg card-hover border border-gray-100/50 hover:border-gray-200/50 transition-all duration-300">
                 <div
-                  className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  className={`w-16 h-16 bg-gradient-to-r ${feature.gradient} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300 relative`}
                 >
                   {feature.icon}
+                  {/* Icon glow */}
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300"></div>
                 </div>
                 <h3 className="text-xl font-semibold text-dark mb-4">
                   {feature.title}
@@ -133,7 +159,7 @@ const Features = () => {
                   {feature.description}
                 </p>
                 <div className="mt-6">
-                  <button className="inline-flex items-center text-primary font-medium group-hover:gap-2 transition-all duration-300">
+                  <button className="inline-flex items-center text-primary font-medium group-hover:gap-2 transition-all duration-300 relative">
                     Learn more
                     <svg
                       className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform"
@@ -148,6 +174,8 @@ const Features = () => {
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
+                    {/* Underline animation */}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
                   </button>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-# ELTS Pro - Modern IELTS Preparation Platform
+# IELTS Pro - Modern IELTS Preparation Platform
 
 A modern, **AI-powered IELTS preparation platform** built with **React and Tailwind CSS**, featuring a sleek UI/UX design focused on **user engagement and conversion**.
 

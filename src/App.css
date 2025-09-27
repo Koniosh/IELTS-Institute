@@ -1,14 +1,145 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-light text-dark;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-700 transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300;
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-gradient-to-r from-primary to-primary-dark rounded-full hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary overflow-hidden;
+  }
+
+  .btn-primary::before {
+    content: "";
+    @apply absolute inset-0 w-0 bg-white transition-all duration-300 ease-out;
+  }
+
+  .btn-primary:hover::before {
+    @apply w-full;
+  }
+
+  .btn-primary span {
+    @apply relative z-10 transition-colors duration-300;
+  }
+
+  .btn-primary:hover span {
+    @apply text-primary;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 font-semibold transition-all duration-200 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary overflow-hidden;
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
+    @apply transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl;
   }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient 3s ease infinite;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .floating-shape {
+    @apply absolute rounded-full mix-blend-multiply filter blur-xl opacity-30;
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+/* Custom animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out;
+}
+
+/* Animation delays */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: #6366f1;
+  color: white;
 }

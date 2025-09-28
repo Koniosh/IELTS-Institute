@@ -176,24 +176,24 @@ const Footer = () => {
               students worldwide.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              <button
+                onClick={() => console.log("Clicked!")}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              </button>
+              <button
+                onClick={() => console.log("Clicked!")}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white text-sm transition-colors"
+              </button>
+              <button
+                onClick={() => console.log("Clicked!")}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
               >
                 Cookie Policy
-              </a>
+              </button>
             </div>
           </div>
         </div>

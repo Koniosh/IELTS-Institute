@@ -42,7 +42,7 @@ const Footer = () => {
               ].map((social) => (
                 <a
                   key={social.icon}
-                  href="#"
+                  href="/"
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary transition-all duration-300 hover:scale-110"
                 >
                   <svg
@@ -64,7 +64,7 @@ const Footer = () => {
                 (link) => (
                   <li key={link}>
                     <a
-                      href="#"
+                      href="/"
                       className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
                     >
                       <span className="w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
@@ -88,7 +88,7 @@ const Footer = () => {
               ].map((link) => (
                 <li key={link}>
                   <a
-                    href="#"
+                    href="/"
                     className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
                   >
                     <span className="w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
@@ -176,24 +176,24 @@ const Footer = () => {
               students worldwide.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <button
-                onClick={() => console.log("Clicked!")}
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+              <a
+                href="/"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Privacy Policy
-              </button>
-              <button
-                onClick={() => console.log("Clicked!")}
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+              </a>
+              <a
+                href="/"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Terms of Service
-              </button>
-              <button
-                onClick={() => console.log("Clicked!")}
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+              </a>
+              <a
+                href="/"
+                className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Cookie Policy
-              </button>
+              </a>
             </div>
           </div>
         </div>

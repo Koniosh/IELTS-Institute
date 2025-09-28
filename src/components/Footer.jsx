@@ -42,7 +42,7 @@ const Footer = () => {
               ].map((social) => (
                 <a
                   key={social.icon}
-                  href="javascript:void(0)"
+                  href="#"
                   className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary transition-all duration-300 hover:scale-110"
                 >
                   <svg
@@ -64,7 +64,7 @@ const Footer = () => {
                 (link) => (
                   <li key={link}>
                     <a
-                      href="javascript:void(0)"
+                      href="#"
                       className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center group"
                     >
                       <span className="w-0 h-px bg-primary group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
@@ -177,19 +177,19 @@ const Footer = () => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Privacy Policy
               </a>
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Terms of Service
               </a>
               <a
-                href="javascript:void(0)"
+                href="#"
                 className="text-gray-400 hover:text-white text-sm transition-colors"
               >
                 Cookie Policy

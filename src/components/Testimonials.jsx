@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -56,10 +56,19 @@ const Testimonials = () => {
     },
   ];
 
-  // Function to go to next testimonial
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
+
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        nextTestimonial();
+      }, 5000);
+    }
+
+    return () => clearInterval(intervalRef.current);
+  }, [isPaused, nextTestimonial]);
 
   // Function to go to previous testimonial
   const prevTestimonial = () => {
@@ -67,21 +76,6 @@ const Testimonials = () => {
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isPaused) {
-      intervalRef.current = setInterval(() => {
-        nextTestimonial();
-      }, 5000); // Change testimonial every 5 seconds
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [activeIndex, isPaused]);
 
   // Handle dot click
   const handleDotClick = (index) => {
